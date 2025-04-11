@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "module": "CommonJS",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "outDir": ".",
+    "baseUrl": ".",
+    "types": ["obsidian", "node"]
+  },
+  "files": ["main.ts"]
+}
