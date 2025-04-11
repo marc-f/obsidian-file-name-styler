@@ -1,0 +1,25 @@
+{
+  "name": "filename-styler",
+  "version": "1.0.0",
+  "description": "An Obsidian plugin to style filenames based on ID patterns, colors, icons, and more.",
+  "main": "main.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "keywords": [
+    "obsidian",
+    "plugin",
+    "filename",
+    "styling",
+    "zettelkasten",
+    "customization"
+  ],
+  "author": "Marc Feininger",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "obsidian": "https://github.com/obsidianmd/obsidian-api",
+    "typescript": "^5.3.3"
+  }
+}

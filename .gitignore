@@ -1,0 +1,26 @@
+# Compiled output
+main.js
+main.js.map
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Node.js dependencies
+node_modules/
+package-lock.json
+
+# Build output (ZIPs and temporary folders)
+build/
+*.zip
+
+# OS-specific files
+.DS_Store
+
+# PhpStorm project files
+.idea/
+
+# Optional: IDE-specific workspace files
+*.iml
+
+# Optional: Logs and misc
+*.log
