@@ -1,12 +1,14 @@
 {
   "name": "filename-styler",
   "version": "1.0.0",
+  "type": "module",
   "description": "An Obsidian plugin to style filenames based on ID patterns, colors, icons, and more.",
   "main": "main.js",
   "scripts": {
     "dev": "node esbuild.config.mjs",
     "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
-    "version": "node version-bump.mjs && git add manifest.json versions.json"
+    "version": "node version-bump.mjs && git add manifest.json versions.json",
+    "lint": "eslint . --ext .ts"
   },
   "keywords": [
     "obsidian",
@@ -19,9 +21,14 @@
   "author": "Marc Feininger",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.24.0",
     "@types/node": "^22.14.0",
+    "@typescript-eslint/eslint-plugin": "^8.29.1",
+    "@typescript-eslint/parser": "^8.29.1",
     "builtin-modules": "^5.0.0",
     "esbuild": "^0.25.2",
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0",
     "obsidian": "latest",
     "typescript": "^5.3.3"
   }
