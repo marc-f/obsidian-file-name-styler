@@ -1,1 +1,3 @@
-/* Placeholder style sheet */
+.nav-file-title .nav-file-title-content::before {
+    content: var(--file-icon);
+}
