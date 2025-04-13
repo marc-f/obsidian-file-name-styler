@@ -19,14 +19,10 @@ export class FileNameStylerSettingTab extends PluginSettingTab {
         const { containerEl } = this;
         containerEl.empty();
 
-        const profileHeading = containerEl.createDiv(
-            "setting-item setting-item-heading"
-        );
-        const profileInfo = profileHeading.createDiv("setting-item-info");
-        profileInfo.createDiv({
-            cls: "setting-item-name",
-            text: "Filename styling profiles",
+        const profileIntro = containerEl.createEl("p", {
+            text: "Profiles let you define different filename styles that can be toggled as needed. Customize icons, colors, prefixes, and suffixes per profile to style your file list your way.",
         });
+        profileIntro.classList.add("setting-item-description");
 
         new Setting(containerEl)
             .setName("New Profile")
