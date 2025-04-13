@@ -1,10 +1,11 @@
 {
   "id": "filename-styler",
   "name": "FileName Styler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "minAppVersion": "1.8.9",
   "description": "Customize and style file names in the file explorer using patterns, prefixes, suffixes, colors, and icons.",
   "author": "Marc Feininger",
   "authorUrl": "https://github.com/marc-f/obsidian-file-name-styler",
-  "main": "main.js"
+  "main": "main.js",
+  "isDesktopOnly": false
 }

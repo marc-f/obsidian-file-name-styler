@@ -6,13 +6,14 @@ import globals from 'globals';
 export default [
     js.configs.recommended,
     {
-        files: ['**/*.ts'],
+        files: ['**/*.ts', '**/*.mjs'],
         languageOptions: {
             parser: tsParser,
             sourceType: 'module',
             globals: {
                 ...globals.browser,
-                ...globals.node
+                ...globals.node,
+                process: "readonly"
             }
         },
         plugins: {
