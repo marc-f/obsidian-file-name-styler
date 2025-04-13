@@ -1,6 +1,6 @@
 {
   "name": "filename-styler",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "type": "module",
   "description": "An Obsidian plugin to style filenames based on ID patterns, colors, icons, and more.",
   "main": "main.js",
