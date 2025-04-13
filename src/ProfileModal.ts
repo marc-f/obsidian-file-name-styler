@@ -256,15 +256,27 @@ export class ProfileModal extends Modal {
             .addToggle((toggle) => {
                 toggle.setValue((this.profileData[key] as boolean) ?? false);
                 toggle.onChange(async (value) => {
-                    this.profileData[key] = value as any;
+                    this.setProfileDataValue(
+                        key as keyof FileNameStylerProfileSettings,
+                        value
+                    );
+
                     Object.assign(
                         this.plugin.settings.profiles[this.profileName],
                         this.profileData
                     );
+
                     await this.plugin.saveSettings();
                     this.plugin.refreshAll();
                 });
             });
+    }
+
+    private setProfileDataValue<K extends keyof FileNameStylerProfileSettings>(
+        key: K,
+        value: FileNameStylerProfileSettings[K]
+    ) {
+        this.profileData[key] = value;
     }
 
     private addProfileTextSetting(
@@ -283,7 +295,11 @@ export class ProfileModal extends Modal {
                             (DEFAULT_PROFILE_SETTINGS[key] as string)
                     )
                     .onChange(async (value) => {
-                        this.profileData[key] = value as any;
+                        this.setProfileDataValue(
+                            key as keyof FileNameStylerProfileSettings,
+                            value
+                        );
+
                         Object.assign(
                             this.plugin.settings.profiles[this.profileName],
                             this.profileData
@@ -297,9 +313,12 @@ export class ProfileModal extends Modal {
                     .setIcon("reset")
                     .setTooltip("Reset to default")
                     .onClick(async () => {
-                        this.profileData[key] = DEFAULT_PROFILE_SETTINGS[
-                            key
-                        ] as any;
+                        const typedKey =
+                            key as keyof FileNameStylerProfileSettings;
+                        this.setProfileDataValue(
+                            typedKey,
+                            DEFAULT_PROFILE_SETTINGS[typedKey]
+                        );
                         Object.assign(
                             this.plugin.settings.profiles[this.profileName],
                             this.profileData
