@@ -81,13 +81,30 @@ export class ProfileModal extends Modal {
                 });
         }
 
-        this.createSectionHeading(contentEl, "ID position in filename");
-        this.addProfileToggleSetting(
-            contentEl,
-            "Move ID to end",
-            "Moves the ID to the end of the filename",
-            "moveIdToEnd"
-        );
+        this.createSectionHeading(contentEl, "ID display options");
+        new Setting(contentEl)
+            .setName("ID display")
+            .setDesc("Control how the ID is shown in the filename")
+            .addDropdown((drop) => {
+                drop.addOption("hide", "Hide ID");
+                drop.addOption("show", "Show ID at start");
+                drop.addOption("end", "Move ID to end");
+
+                drop.setValue(this.profileData.idDisplayMode ?? "hide");
+
+                drop.onChange(async (value) => {
+                    this.profileData.idDisplayMode = value as
+                        | "hide"
+                        | "show"
+                        | "end";
+
+                    this.plugin.settings.profiles[this.profileName] =
+                        this.profileData;
+
+                    await this.plugin.saveSettings();
+                    this.plugin.refreshAll();
+                });
+            });
 
         this.createSectionHeading(contentEl, "Folder filter");
         this.addProfileToggleSetting(

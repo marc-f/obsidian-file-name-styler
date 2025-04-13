@@ -1,7 +1,8 @@
 export interface FileNameStylerProfileSettings {
     idFormat: string;
     customIdRegex?: string;
-    moveIdToEnd: boolean;
+    moveIdToEnd: boolean /** @deprecated replaced by idDisplayMode */;
+    idDisplayMode: "hide" | "show" | "end";
     showCustomSuffix: boolean;
     customSuffix: string;
     customColor: string;
@@ -21,7 +22,8 @@ export interface FileNameStylerGlobalSettings {
 
 export const DEFAULT_PROFILE_SETTINGS: FileNameStylerProfileSettings = {
     idFormat: "12",
-    moveIdToEnd: false,
+    moveIdToEnd: false /** @deprecated replaced by idDisplayMode */,
+    idDisplayMode: "hide",
     showCustomSuffix: false,
     customSuffix: " (z)",
     customColor: "#4b0082",

@@ -4,6 +4,7 @@ import {
     FileNameStylerProfileSettings,
 } from "./types";
 import { FileNameStylerSettingTab } from "./FileNameStylerSettingTab";
+import { SettingsMigrator } from "./SettingsMigrator";
 
 export class FileNameStylerPlugin extends Plugin {
     settings!: FileNameStylerGlobalSettings;
@@ -54,10 +55,20 @@ export class FileNameStylerPlugin extends Plugin {
     }
 
     async loadSettings() {
-        this.settings = Object.assign(
-            { profiles: {}, activeProfiles: [] },
-            await this.loadData()
-        );
+        const data = await this.loadData();
+        const migrator = new SettingsMigrator();
+
+        const { migrated, changed } = migrator.migrate({
+            profiles: {},
+            activeProfiles: [],
+            ...data,
+        });
+
+        this.settings = migrated;
+
+        if (changed) {
+            await this.saveSettings();
+        }
     }
 
     async saveSettings() {
@@ -126,9 +137,15 @@ export class FileNameStylerPlugin extends Plugin {
 
         el.dataset.originalTitle = originalText;
 
-        const moveToEnd = profile.moveIdToEnd ?? false;
+        const mode = profile.idDisplayMode ?? "hide";
 
-        el.textContent = moveToEnd ? `${match[3]} ${match[1]}` : match[3];
+        if (mode === "hide") {
+            el.textContent = match[3];
+        } else if (mode === "show") {
+            el.textContent = `${match[1]}${match[2]}${match[3]}`;
+        } else if (mode === "end") {
+            el.textContent = `${match[3]} ${match[1]}`;
+        }
     }
 
     applyProfileStyling(
