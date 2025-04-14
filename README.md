@@ -20,6 +20,15 @@ Originally created as simple “Zettelkasten ID Hider,” this plugin has evolve
 
 ---
 
+## Preview
+
+Here’s a quick before/after look at how file names appear with and without styling enabled:
+
+![File name styling example](images/before-after.png)
+
+---
+
+
 ## How it works
 
 This plugin searches for matching file names based on selected ID formats:
@@ -67,7 +76,7 @@ All profiles can be toggled independently and are applied in order.
    - `manifest.json`
    - (optional) `styles.css`
 
-3. Enable the plugin in Obsidian under  
+3. Enable the plugin in Obsidian under
    `Settings → Community Plugins`.
 
 ---
