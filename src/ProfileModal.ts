@@ -206,7 +206,7 @@ export class ProfileModal extends Modal {
             "customFileIcon"
         );
 
-        this.createSectionHeading(contentEl, "Prefix styling");
+        this.createSectionHeading(contentEl, "Prefix and suffix styling");
         this.addProfileToggleSetting(
             contentEl,
             "Show prefix styling",
@@ -219,8 +219,6 @@ export class ProfileModal extends Modal {
             "Text to prepend to file names, e.g. [Z]",
             "customPrefix"
         );
-
-        this.createSectionHeading(contentEl, "Suffix styling");
         this.addProfileToggleSetting(
             contentEl,
             "Show suffix styling",
@@ -230,7 +228,7 @@ export class ProfileModal extends Modal {
         this.addProfileTextSetting(
             contentEl,
             "Suffix",
-            "Text to append to file names, e.g. [Z]",
+            "Text to append to file names, e.g. (z)",
             "customSuffix"
         );
 
