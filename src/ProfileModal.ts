@@ -19,9 +19,6 @@ export class ProfileModal extends Modal {
         const { contentEl } = this;
         contentEl.empty();
 
-        this.modalEl.style.maxWidth = "70vw";
-        this.modalEl.style.width = "700px";
-
         contentEl.createEl("h2", { text: `Profile: ${this.profileName}` });
 
         const isActive = this.plugin.settings.activeProfiles.includes(
