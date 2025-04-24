@@ -25,7 +25,7 @@ export class FileNameStylerSettingTab extends PluginSettingTab {
         profileIntro.classList.add("setting-item-description");
 
         new Setting(containerEl)
-            .setName("New Profile")
+            .setName("New profile")
             .setDesc("Enter a profile name and add it")
             .addText((text) => {
                 text.setPlaceholder("e.g. Focus Mode").onChange(

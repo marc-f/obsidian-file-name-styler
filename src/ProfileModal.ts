@@ -34,7 +34,7 @@ export class ProfileModal extends Modal {
 
         this.createSectionHeading(contentEl, "Filename ID format");
         new Setting(contentEl)
-            .setName("ID Format")
+            .setName("ID format")
             .setDesc("Select the ID format used at the beginning of filenames.")
             .addDropdown((drop) => {
                 drop.addOption("14", "14-digit (yyyyMMddHHmmss)");
@@ -56,7 +56,7 @@ export class ProfileModal extends Modal {
 
         if (this.profileData.idFormat === "custom") {
             new Setting(contentEl)
-                .setName("Custom ID Regex")
+                .setName("Custom ID regex")
                 .setDesc(
                     "Enter a custom regular expression to extract the ID and filename\n" +
                         "The custom regex must contain exactly three capturing groups:\n" +
