@@ -1,7 +1,7 @@
 {
   "id": "filename-styler",
   "name": "FileName Styler",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "minAppVersion": "1.8.9",
   "description": "Customize and style file names in the file explorer using patterns, prefixes, suffixes, colors, and icons.",
   "author": "Marc Feininger",
