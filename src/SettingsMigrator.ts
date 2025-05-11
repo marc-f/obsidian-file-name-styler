@@ -18,9 +18,6 @@ export class SettingsMigrator {
                 this.migrateMoveIdToEnd(profile);
 
             if (profileChanged) {
-                console.info(
-                    `[FileNameStyler] Migrated profile: ${profileName}`
-                );
                 migratedSettings.profiles[profileName] = migratedProfile;
                 changed = true;
             }

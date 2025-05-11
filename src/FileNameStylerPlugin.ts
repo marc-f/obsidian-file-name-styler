@@ -11,8 +11,6 @@ export class FileNameStylerPlugin extends Plugin {
     observer!: MutationObserver;
 
     async onload() {
-        console.log("FileName Styler Plugin loaded");
-
         await this.loadSettings();
         this.addSettingTab(new FileNameStylerSettingTab(this.app, this));
 
@@ -49,7 +47,6 @@ export class FileNameStylerPlugin extends Plugin {
     }
 
     onunload() {
-        console.log("FileName Styler Plugin unloaded");
         this.observer.disconnect();
         this.restoreOriginalFileTitles();
     }
